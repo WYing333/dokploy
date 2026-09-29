@@ -241,7 +241,7 @@ export const checkProjectAccess = async (
 	}
 };
 
-export const checkServicePermissionAndAccess = async (
+export const assertServicePermissionAndAccess = async (
 	ctx: PermissionCtx,
 	serviceId: string,
 	permissions: Permissions,
