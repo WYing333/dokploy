@@ -63,7 +63,7 @@ const LOG_STYLES: Record<LogType, LogStyle> = {
 	},
 } as const;
 
-export function parseLogs(logString: string): LogLine[] {
+export function parseLogLines(logString: string): LogLine[] {
 	// Regex to match the log line format
 	// Example of return :
 	// 1 2024-12-10T10:00:00.000Z The server is running on port 8080
