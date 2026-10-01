@@ -1,10 +1,11 @@
+import { apiFindOneBackup } from "@dokploy/server/db";
 import { z } from "zod";
 
 export const jobQueueSchema = z.discriminatedUnion("type", [
 	z.object({
 		cronSchedule: z.string(),
 		type: z.literal("backup"),
-		backupId: z.string(),
+		backupId: apiFindOneBackup.shape.backupId,
 	}),
 	z.object({
 		cronSchedule: z.string(),
