@@ -20,6 +20,7 @@ import { getBackupTimestamp, getS3Credentials, normalizeS3Path } from "./utils";
 
 function formatBytes(bytes?: number) {
 	if (bytes === undefined) return "Unknown size";
+	if (!Number.isFinite(bytes) || bytes < 0) return "Unknown size";
 	if (bytes === 0) return "0 B";
 	const sizes = ["B", "KB", "MB", "GB", "TB"];
 	const i = Math.floor(Math.log(bytes) / Math.log(1024));
