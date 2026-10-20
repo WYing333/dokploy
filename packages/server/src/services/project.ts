@@ -146,8 +146,13 @@ export const updateProjectById = async (
 	return result;
 };
 
-export const validUniqueServerAppName = async (appName: string) => {
+export const validUniqueServerAppName = async (
+	appName: string,
+	environmentId: string,
+) => {
+	const scope = environmentId.trim();
 	const query = await db.query.environments.findMany({
+		where: eq(environments.environmentId, scope),
 		columns: { environmentId: true },
 		with: {
 			applications: {
